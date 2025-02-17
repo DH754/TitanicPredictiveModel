@@ -1,0 +1,21 @@
+import pandas as pd
+
+# Load the datasets
+train_data = pd.read_csv('train.csv')
+test_data = pd.read_csv('test.csv')
+
+# Combine the datasets
+combined_data = pd.concat([train_data, test_data], ignore_index=True)
+
+# Select relevant numerical columns
+numerical_columns = ['Pclass', 'Age', 'SibSp', 'Parch', 'Fare', 'Survived']
+combined_data = combined_data[numerical_columns]
+
+# Handle missing values (e.g., fill missing 'Age' and 'Fare' with median)
+combined_data['Age'].fillna(combined_data['Age'].median(), inplace=True)
+combined_data['Fare'].fillna(combined_data['Fare'].median(), inplace=True)
+
+# Compute the correlation matrix
+correlation_matrix = combined_data.corr()
+
+print(correlation_matrix)
