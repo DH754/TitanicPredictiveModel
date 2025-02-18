@@ -48,5 +48,5 @@ Some passengers may have paid very high fares but still did not survive, or vice
 
 # Next steps
 
-Meta Modeling
+Meta Modeling - find out which high fare ticket holders had a higher likelihood to survive based on gender or age.
 
